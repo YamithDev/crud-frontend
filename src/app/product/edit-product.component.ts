@@ -33,7 +33,7 @@ export class EditProductComponent implements OnInit {
           timeOut: 3000,
           positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/']);
+        this.volver();
       }
     );
   }
@@ -46,7 +46,7 @@ export class EditProductComponent implements OnInit {
           timeOut: 3000,
           positionClass: 'toast-top-center',
         });
-        this.router.navigate(['/']);
+        this.volver();
       },
       (err) => {
         this.toastr.error(err.error.message, 'Fail', {
@@ -58,6 +58,6 @@ export class EditProductComponent implements OnInit {
   }
 
   volver(): void {
-    this.router.navigate(['/']);
+    this.router.navigate(['/lista']);
   }
 }
