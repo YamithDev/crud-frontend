@@ -7,13 +7,12 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-detail-product',
   templateUrl: './detail-product.component.html',
-  styleUrls: ['./detail-product.component.css']
+  styleUrls: ['./detail-product.component.css'],
 })
 export class DetailProductComponent implements OnInit {
-
   product: Product = {
     nombre: '',
-    precio: 0
+    descripcion: '',
   };
 
   constructor(
@@ -21,17 +20,18 @@ export class DetailProductComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     private toastr: ToastrService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params.id;
     this.productService.detail(id).subscribe(
-      data => {
+      (data) => {
         this.product = data;
       },
-      err => {
+      (err) => {
         this.toastr.error(err.error.message, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
         });
         this.volver();
       }
@@ -41,5 +41,4 @@ export class DetailProductComponent implements OnInit {
   volver(): void {
     this.router.navigate(['/']);
   }
-
 }

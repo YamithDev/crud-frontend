@@ -7,34 +7,34 @@ import { ProductService } from '../services/product.service';
 @Component({
   selector: 'app-new-product',
   templateUrl: './new-product.component.html',
-  styleUrls: ['./new-product.component.css']
+  styleUrls: ['./new-product.component.css'],
 })
 export class NewProductComponent implements OnInit {
-
   nombre = '';
-  precio: number = 0;
+  descripcion = '';
 
   constructor(
     private productService: ProductService,
     private toastr: ToastrService,
     private router: Router
-    ) { }
+  ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   onCreate(): void {
-    const producto = new Product(this.nombre, this.precio);
+    const producto = new Product(this.nombre, this.descripcion);
     this.productService.save(producto).subscribe(
-      data => {
+      (data) => {
         this.toastr.success('Servicio creado con éxito', 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
         });
         this.router.navigate(['/']);
       },
-      err => {
+      (err) => {
         this.toastr.error(err.error.message, 'Fail', {
-          timeOut: 3000,  positionClass: 'toast-top-center',
+          timeOut: 3000,
+          positionClass: 'toast-top-center',
         });
       }
     );
@@ -43,5 +43,4 @@ export class NewProductComponent implements OnInit {
   volver(): void {
     this.router.navigate(['/']);
   }
-
 }

@@ -7,17 +7,14 @@ import { Product } from '../models/product';
 @Component({
   selector: 'app-list-product',
   templateUrl: './list-product.component.html',
-  styleUrls: ['./list-product.component.css']
+  styleUrls: ['./list-product.component.css'],
 })
 export class ListProductComponent implements OnInit {
-
   products: Product[] = [];
 
   listEmpty = undefined;
 
-  constructor(
-    private productService: ProductService
-    ) { }
+  constructor(private productService: ProductService) {}
 
   ngOnInit(): void {
     this.showProducts();
@@ -25,11 +22,11 @@ export class ListProductComponent implements OnInit {
 
   showProducts(): void {
     this.productService.list().subscribe(
-      data => {
+      (data) => {
         this.products = data;
         this.listEmpty = undefined;
       },
-      err => {
+      (err) => {
         this.listEmpty = err.error.message;
       }
     );
@@ -42,23 +39,14 @@ export class ListProductComponent implements OnInit {
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Si',
-      cancelButtonText: 'No'
+      cancelButtonText: 'No',
     }).then((result) => {
       if (result.value) {
-        this.productService.delete(id).subscribe(res => this.showProducts());
-        Swal.fire(
-          'OK',
-          'Servicio eliminado con éxito',
-          'success'
-        );
+        this.productService.delete(id).subscribe((res) => this.showProducts());
+        Swal.fire('OK', 'Servicio eliminado con éxito', 'success');
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire(
-          'Cancelado',
-          'Servicio a salvo',
-          'error'
-        );
+        Swal.fire('Cancelado', 'Servicio a salvo', 'error');
       }
     });
   }
-
 }

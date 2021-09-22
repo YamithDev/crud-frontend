@@ -5,13 +5,12 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../models/product';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductService {
-
   productURL = environment.productURL;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {}
 
   public list(): Observable<Product[]> {
     return this.httpClient.get<Product[]>(`${this.productURL}`);

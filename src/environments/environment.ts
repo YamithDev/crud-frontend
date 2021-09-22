@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  productURL: 'http://localhost:8080/product/'
+  productURL:
+    'https://2e46-2800-e2-307f-f801-38e3-a08-8884-dc74.ngrok.io/product/',
 };
 
 /*

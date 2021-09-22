@@ -4,7 +4,7 @@
           <tr>
             <th scope="col">Id</th>
             <th scope="col">Nombre</th>
-            <th scope="col">Precio</th>
+            <th scope="col">Descripcion</th>
             <th scope="col">Ver</th>
             <th scope="col">Editar</th>
             <th scope="col">Borrar</th>
@@ -14,7 +14,7 @@
           <tr *ngFor="let product2 of products">
             <td>{{product2.id}}</td>
             <td>{{product2.nombre}}</td>
-            <td>{{product2.precio}}</td>
+            <td>{{product2.descripcion }}</td>
             <td><button class="btn btn-outline-primary" routerLink="/detail/{{product2.id}}"><i class="far fa-eye"></i> Ver</button></td>
             <td><button class="btn btn-outline-warning" routerLink="/edit/{{product2.id}}"><i class="far fa-edit"></i> Editar</button></td>
             <td><button class="btn btn-outline-danger" (click)="deleteProduct(product2.id)"><i class="far fa-trash-alt"></i> Eliminar</button></td>
