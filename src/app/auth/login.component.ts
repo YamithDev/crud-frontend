@@ -30,14 +30,24 @@ export class LoginComponent implements OnInit {
 
   onLogin(): void {
     this.usuario = new LoginUsuarioDto(this.nombreUsuario, this.password);
-    this.authService.login(this.usuario).subscribe((data) => {
-      if (!data.token) {
-        this.toasterService.error(data.response.message, 'Fail', {
+    this.authService.login(this.usuario).subscribe(
+      (data) => {
+        if (!data.token) {
+          this.toasterService.error(data.response.message, 'Fail', {
+            timeOut: 3000,
+            positionClass: 'toast-top-right',
+          });
+        } else {
+          this.tokenService.setToken(data.token);
+          this.router.navigate(['/']);
+        }
+      },
+      (err) => {
+        this.toasterService.error(err.error.message, 'Fail', {
           timeOut: 3000,
-          positionClass: 'toast-top-right',
+          positionClass: 'toast-bottom-right',
         });
       }
-      this.tokenService.setToken(data.token);
-    });
+    );
   }
 }

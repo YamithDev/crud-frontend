@@ -2,7 +2,10 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1 class="display-4">Bienvenidos</h1>
+    <h1 class="display-4" *ngIf="!nombreUsuario">Bienvenidos</h1>
+    <h1 class="display-4" *ngIf="nombreUsuario">
+      Bienvenido {{ nombreUsuario }}
+    </h1>
     <p class="lead">
       Turista es la plataforma donde puede ofertar de manera rápida, fácil y
       agil tus servicios para ofrecerlos al turista nacional e internacional
