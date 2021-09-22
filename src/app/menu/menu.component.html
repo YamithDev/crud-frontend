@@ -12,7 +12,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">
           <i class="fas fa-home"></i> Inicio
@@ -29,5 +29,13 @@
         >
       </li>
     </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/login">
+        <i class="fas fa-sing-in-alt"></i> Iniciar Sesión
+      </button>
+      <button class="btn btn-outline-danger my-2 my-sm-0" routerLink="/login">
+        <i class="fas fa-sing-out"></i> Cerrar Sesión
+      </button>
+    </form>
   </div>
 </nav>
