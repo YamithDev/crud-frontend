@@ -3,6 +3,7 @@ import { ProductService } from '../services/product.service';
 
 import Swal from 'sweetalert2';
 import { Product } from '../models/product';
+import { TokenService } from '../services/token.service';
 
 @Component({
   selector: 'app-list-product',
@@ -14,9 +15,15 @@ export class ListProductComponent implements OnInit {
 
   listEmpty = undefined;
 
-  constructor(private productService: ProductService) {}
+  isAdmin: boolean = false;
+
+  constructor(
+    private productService: ProductService,
+    private tokenService: TokenService
+  ) {}
 
   ngOnInit(): void {
+    this.isAdmin = this.tokenService.isAdmin();
     this.showProducts();
   }
 

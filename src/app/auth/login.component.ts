@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         if (!data.token) {
           this.toasterService.error(data.response.message, 'Fail', {
             timeOut: 3000,
-            positionClass: 'toast-top-right',
+            positionClass: 'toast-top-left',
           });
         } else {
           this.tokenService.setToken(data.token);
@@ -45,7 +45,7 @@ export class LoginComponent implements OnInit {
       (err) => {
         this.toasterService.error(err.error.message, 'Fail', {
           timeOut: 3000,
-          positionClass: 'toast-bottom-right',
+          positionClass: 'toast-bottom-left',
         });
       }
     );

@@ -1,8 +1,8 @@
 export class NuevoUsuarioDto {
-  nombre: string;
-  nombreUsuario: string;
-  email: string;
-  password: string;
+  nombre?: string;
+  nombreUsuario?: string;
+  email?: string;
+  password?: string;
 
   constructor(
     nombre: string,

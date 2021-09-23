@@ -9,13 +9,12 @@ import { TokenService } from '../services/token.service';
 })
 export class MenuComponent implements OnInit {
   isLogged: boolean = false;
-
+  isAdmin: boolean = false;
   constructor(private tokenService: TokenService, private router: Router) {}
 
   ngOnInit(): void {
-    this.tokenService.isLogged()
-      ? (this.isLogged = true)
-      : (this.isLogged = false);
+    this.isLogged = this.tokenService.isLogged();
+    this.isAdmin = this.tokenService.isAdmin();
   }
 
   logOut(): void {
