@@ -1,11 +1,4 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
-  <a class="navbar-brand" rel="home" routerLink="/"
-    ><img
-      src="../../assets/images/Logo-plataforma-Turist-a-03.svg"
-      alt="_logo"
-      class="img-brand"
-    />
-  </a>
   <button
     class="navbar-toggler"
     type="button"
@@ -18,6 +11,13 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
+    <a class="navbar-brand" rel="home" routerLink="/"
+      ><img
+        style="width: 6.5rem !important"
+        src="../../assets/images/Logo-plataforma-Turist-a-03.svg"
+        alt="_logo"
+      />
+    </a>
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/">
@@ -26,7 +26,7 @@
       </li>
       <li class="nav-item" *ngIf="isAdmin">
         <a class="nav-link" routerLink="/lista"
-          ><i class="far fa-list-alt"></i> Lista</a
+          ><i class="far fa-list-alt"></i> Lista de Rutas</a
         >
       </li>
       <li class="nav-item" *ngIf="isAdmin">

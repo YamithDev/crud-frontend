@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   productURL:
     'https://2e46-2800-e2-307f-f801-38e3-a08-8884-dc74.ngrok.io/product/',
+  servicioURL:
+    'https://2e46-2800-e2-307f-f801-38e3-a08-8884-dc74.ngrok.io/servicio/',
   authURL: 'https://2e46-2800-e2-307f-f801-38e3-a08-8884-dc74.ngrok.io/auth/',
 };
 
